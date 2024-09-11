@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-quickstart</title>
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+  <!-- 一个容器与Vue实例为一一对应关系 -->
+    <div id="root">
+        {{name}}
+    </div>
+
+    <script type="text/javascript">
+      new Vue({
+        el:"#root",
+        data:{
+          name:"tom",
+        }
+      });
+    </script>
+</body>
+</html>

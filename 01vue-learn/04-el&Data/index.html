@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-el&data</title>
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+  
+  
+  <div id="root">
+    <h1>Hello {{name}}</h1>
+    <div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // const myVue=new Vue({
+    //   // 绑定组件的第一种语法
+    //   // el:"#root",
+    //   data:{//data可以是 1 对象式
+    //     name:"john",
+    //   }
+    // });
+    //绑定容器的第二种语法
+    // myVue.$mount("#root");
+
+
+    // setTimeout(()=>{
+    //   myVue.$mount("#root");
+    // },1000);
+    
+    new Vue({
+          el:"#root",
+          data() {//data可以是 2 函数式。此处函数只能是普通函数，而不能是箭头表达式。
+            return{
+              name:"john"
+            }
+          }
+    });
+
+  </script>
+</body>
+</html>
