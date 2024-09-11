@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defineProperties</title>
+
+</head>
+<body>
+
+  <script type="text/javascript">
+    // Object.defineProperties(obj,propertyName,{}) 详见MDN
+    // 共享 enumerable,configurable属性。
+    // 数据修饰符含 writeable 和 value 访问器修饰符含 set 和 get。
+    // 什么都不写，默认是数据修饰符。详细内容见笔记和MDN
+
+    //下面的代码将完成number 和 person 的age 属性的双向绑定
+    let number =18;
+    let person={
+      name:"jack",
+      gender:"male"
+    }
+
+    Object.defineProperty(person,"age",{
+      enumerable:true, //控制属性是否可遍历，默认为false
+      configurable:true, //控制属性是否可以删除，修改，默认为false
+      
+      //如下为访问器修饰符(不可与数据修饰符共存)
+      get(){
+        return number;
+      },
+
+      set(value){
+        number=value;
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>

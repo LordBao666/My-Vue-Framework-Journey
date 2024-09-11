@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defineProperties</title>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+
+    let obj1 ={x:200};
+    let obj2 = {};
+
+    Object.defineProperty(obj2, "x", {
+      enumerable: true, 
+      configurable: true, 
+
+      //如下为访问器修饰符(不可与数据修饰符共存)
+      get() {
+        return obj1.x;
+      },
+
+      set(value) {
+        obj1.x = value;
+      }
+    })
+
+
+
+  </script>
+</body>
+
+</html>
