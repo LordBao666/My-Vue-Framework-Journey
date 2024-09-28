@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic Usage</title>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo without computed</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+
+<body>
+  <!-- 事件处理的基本使用 -->
+  <div id="root">
+    姓: <input type="text" v-model="firstName"> <br>
+    名: <input type="text" v-model="lastName"> <br>
+    全名: {{fullName()}}
+  </div>
+
+  <script type="text/javascript">
+
+    const vm = new Vue({
+      el: "#root",
+      data:{
+        firstName:"",
+        lastName:""
+      },
+      methods: {
+        fullName(){
+          return this.firstName.slice(0,3) +"-"+ this.lastName.slice(0,3);
+        }
+      },
+
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic Usage</title>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo with computed</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+
+<body>
+  <!-- 事件处理的基本使用 -->
+  <div id="root">
+    姓: <input type="text" v-model="firstName"> <br>
+    名: <input type="text" v-model="lastName"> <br>
+    全名: {{fullName}}
+  </div>
+
+  <script type="text/javascript">
+
+    const vm = new Vue({
+      el: "#root",
+      data:{
+        firstName:"",
+        lastName:""
+      },
+      computed:{
+        fullName:{
+          //getter调用时机：
+          // 1  初次访问时 ; 2 fullName 依赖的属性变化时。但要考虑缓存机制，如果有两个插值表达式{{fullName}}，只有第一个会调用getter，第二个直接用缓存机制。
+          get(){
+            return this.firstName +"-"+ this.lastName;
+          },
+          //这里的set实际上没多大用，你可以通过在控制台中 用 vm.fullName 来修改
+          set(value){
+            [this.firstName,this.lastName]=value.split("-");
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>
