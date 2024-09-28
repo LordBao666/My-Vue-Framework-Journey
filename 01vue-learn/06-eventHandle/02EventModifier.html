@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Modifier</title>
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+    <!--Vue的事件修饰符，常用的是prevent,stop,once  
+      prevent:阻止组件默认行为,
+      stop:阻止冒泡,
+      once:同种事件仅响应一次。下一次事件发生时，不会再有响应(你的响应方法不再调用罢了),但是不阻止组件默认行为和冒泡.
+    -->
+<body>
+  <div id="root">
+      <div @click="method($event)">
+        <a :href="url" @click.stop="method($event)">点击跳转</a>
+      </div>
+  </div>
+
+  <script>
+      const vm = new Vue({
+        el:"#root",
+        data:{
+          // url:"#"
+          url: "https://www.baidu.com"
+        },
+        methods: {
+          method(event){
+            console.log(event.currentTarget); 
+          }
+        },
+      })
+  </script>
+</body>
+</html>

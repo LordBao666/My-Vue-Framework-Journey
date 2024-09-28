@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic Usage</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Proxy</title>
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+  <!-- 事件处理的基本使用 -->
+  <div id="root">
+    value:<input type="text" v-model="value">
+    <button @click="clickOnMe(value,$event)">点击我有惊喜</button>
+  </div>
+  
+  <script type="text/javascript">
+
+    const vm = new Vue({
+      el: "#root",
+      data:{
+        value:"noise information"
+      },
+      methods: {
+        clickOnMe(value,event){
+          console.log(value);
+          console.log(event.target);
+        }
+      },
+
+    });
+  </script>
+</body>
+
+</html>
